@@ -4,9 +4,27 @@
     <meta charset="utf-8" />
     <title>Sockdrive to zip</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <style>
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+textarea {
+  font-family: "Roboto Mono", monospace;
+}
+    </style>
   </head>
   <body>
-    <button id="startNext">Start Next Download</button>
+    <div class="button-container">
+      <button class="pure-button" id="start">Start Download</button>
+      <button class="pure-button" id="cancel">Cancel and Zip downloaded</button>
+      <button class="pure-button" id="skip">Skip current file</button>
+    </div>
+    <textarea readonly spellcheck="false" autocomplete="off" cols=60 rows=20 style="resize: none;"></textarea>
     <script src="src/sockdrive/sockdriveFat.js"></script>
     <script src="src/jszip/jszip.min.js"></script>
     <script src="src/main.js"></script>
