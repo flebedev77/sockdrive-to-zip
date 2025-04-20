@@ -12,19 +12,75 @@
 .button-container {
   display: flex;
   gap: 10px;
+  margin-block: 10px;
+  align-items: baseline;
+}
+.flex {
+  display: flex;
+  align-items: center;
 }
 textarea {
   font-family: "Roboto Mono", monospace;
 }
+.advanced-content {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+.advanced-content input {
+  margin-bottom: 15px;
+}
+.advanced-container {
+  transform: translateY(5px);
+}
+.simple-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: left;
+  text-align: left;
+}
     </style>
   </head>
   <body>
-    <div class="button-container">
-      <button class="pure-button" id="start">Start Download</button>
-      <button class="pure-button" id="cancel">Cancel and Zip downloaded</button>
-      <button class="pure-button" id="skip">Skip current file</button>
-    </div>
-    <textarea readonly spellcheck="false" autocomplete="off" cols=60 rows=20 style="resize: none;"></textarea>
+    <center>
+      <div class="button-container">
+        <span class="simple-container">
+          <label for="diskId">Disk ID</label>
+          <input type="text" id="diskId"/>
+          <label for="selectedDir">Selected Dir</label>
+          <input type="text" id="selectedDir"/>
+        </span>
+        <span class="advanced-container">
+          <div class="flex" id="advancedTitle">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-360 280-560h400L480-360Z"/></svg>
+            <p style="user-select: none;">Advanced Options</p>
+          </div>
+          <div class="advanced-content" id="advancedContent">
+            <label for="diskOwner">Disk Owner</label>
+            <input type="text" id="diskOwner" value="dos.zone"/>
+            <label for="sockdriveEndpoint">Disk endpoint</label>
+            <input type="text" id="sockdriveEndpoint" value="wss://sockdrive.js-dos.com:8001"/>
+          </div>
+        </span>
+      </div>
+
+      <div class="button-container">
+        <button class="pure-button" id="walk">Walkdir</button>
+        <button class="pure-button" id="import">Import walkdata</button>
+        <button class="pure-button" id="export">Export walkdata</button>
+      </div>
+      <input type="file" id="importFileUploadInput" accept=".walkdata,.zip" hidden/>
+
+      <div class="button-container">
+        <button class="pure-button" id="start">Start Download</button>
+        <button class="pure-button" id="cancel">Cancel and Zip downloaded</button>
+        <button class="pure-button" id="skip">Skip current file</button>
+      </div>
+      <textarea readonly spellcheck="false" autocomplete="off" cols=60 rows=20 style="resize: none;"></textarea>
+    </center>
     <script src="src/sockdrive/sockdriveFat.js"></script>
     <script src="src/jszip/jszip.min.js"></script>
     <script src="src/main.js"></script>
